@@ -1,0 +1,217 @@
+Database Commands
+Show Databases
+
+javascript
+
+show dbs
+Lists all databases on the MongoDB server.
+
+Switch to a Database
+
+javascript
+
+use databaseName
+Switches to the specified database.
+
+Drop Database
+
+javascript
+
+db.dropDatabase()
+Drops the current database.
+
+Collection Commands
+Show Collections
+
+javascript
+
+show collections
+Lists all collections in the current database.
+
+Create Collection
+
+javascript
+
+db.createCollection("collectionName")
+Creates a new collection.
+
+Drop Collection
+
+javascript
+
+db.collectionName.drop()
+Drops the specified collection.
+
+CRUD Operations
+Create
+Insert One Document
+
+javascript
+
+db.collectionName.insertOne({ key: value, key: value, ... })
+Inserts a single document into the collection.
+
+Insert Many Documents
+
+javascript
+
+db.collectionName.insertMany([{ key: value, ... }, { key: value, ... }, ...])
+Inserts multiple documents into the collection.
+
+Read
+Find One Document
+
+javascript
+
+db.collectionName.findOne({ key: value })
+Finds a single document that matches the query.
+
+Find Many Documents
+
+javascript
+
+db.collectionName.find({ key: value }).toArray()
+Finds all documents that match the query and converts them to an array.
+
+Find All Documents
+
+javascript
+
+db.collectionName.find().toArray()
+Finds all documents in the collection.
+
+Find with Projection
+
+javascript
+
+db.collectionName.find({ key: value }, { key1: 1, key2: 1 })
+Finds documents and includes only the specified fields.
+
+Count Documents
+
+javascript
+
+db.collectionName.countDocuments({ key: value })
+Counts the number of documents that match the query.
+
+Update
+Update One Document
+
+javascript
+
+db.collectionName.updateOne({ key: value }, { $set: { keyToUpdate: newValue } })
+Updates a single document that matches the query.
+
+Update Many Documents
+
+javascript
+
+db.collectionName.updateMany({ key: value }, { $set: { keyToUpdate: newValue } })
+Updates multiple documents that match the query.
+
+Replace One Document
+
+javascript
+
+db.collectionName.replaceOne({ key: value }, { newKey: newValue, ... })
+Replaces a single document that matches the query.
+
+Delete
+Delete One Document
+
+javascript
+
+db.collectionName.deleteOne({ key: value })
+Deletes a single document that matches the query.
+
+Delete Many Documents
+
+javascript
+
+db.collectionName.deleteMany({ key: value })
+Deletes multiple documents that match the query.
+
+Aggregation Operations
+Aggregate
+javascript
+
+db.collectionName.aggregate([{ $match: { key: value } }, { $group: { _id: "$key", total: { $sum: 1 } } }])
+Performs aggregation operations like grouping and summarizing data.
+Index Operations
+Create Index
+
+javascript
+
+db.collectionName.createIndex({ key: 1 })
+Creates an index on the specified field.
+
+Drop Index
+
+javascript
+
+db.collectionName.dropIndex("indexName")
+Drops the specified index.
+
+List Indexes
+
+javascript
+
+db.collectionName.getIndexes()
+Lists all indexes on the collection.
+
+Admin Commands
+Server Status
+
+javascript
+
+db.serverStatus()
+Provides an overview of the database server’s status.
+
+Database Stats
+
+javascript
+
+db.stats()
+Provides statistics about the current database.
+
+Collection Stats
+
+javascript
+
+db.collectionName.stats()
+Provides statistics about the specified collection.
+
+User Management
+Create User
+
+javascript
+
+db.createUser({
+    user: "username",
+    pwd: "password",
+    roles: [{ role: "readWrite", db: "databaseName" }]
+})
+Creates a new user with specified roles.
+
+Drop User
+
+javascript
+
+db.dropUser("username")
+Deletes the specified user from the database.
+
+Backup and Restore
+Backup Database
+
+
+
+mongodump --db databaseName --out /path/to/backup
+Dumps the specified database to the specified path.
+
+Restore Database
+
+
+mongorestore /path/to/backup
+Restores the database from the specified path.
+
+This list covers the most common MongoDB commands. Depending on your specific needs, there may be additional commands and variations that could be useful.
